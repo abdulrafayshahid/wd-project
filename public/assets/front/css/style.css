@@ -379,12 +379,12 @@ a.theme-btn:hover {
 
 .page-item .page-link:hover {
     color: white;
-    background: var(--primary-color);
+    background: #f36b21;
 }
 
 .page-item.active .page-link {
-    background: var(--primary-color);
-    border-color: var(--primary-color);
+    background: #f36b21;
+    border-color: #f36b21;
     ;
 }
 
@@ -1811,7 +1811,7 @@ Copy code
     align-items: center;
     justify-content: center;
     transform: translate(-50%, -50%);
-    background: var(--primary-color);
+    background: #f36b21;
 }
 
 .product-icons a {
@@ -1842,7 +1842,7 @@ Copy code
 
 .shop-item .price {
     font-weight: 600;
-    color: var(--primary-color);
+    color: #f36b21;
     font-family: var(--heading-font);
 }
 

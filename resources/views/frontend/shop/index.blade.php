@@ -183,11 +183,11 @@
             </div>
             {{ $products->links() }}
 
-            @if (!empty(showAd(3)))
+            <!-- @if (!empty(showAd(3)))
               <div class="text-center mt-4">
                 {!! showAd(3) !!}
               </div>
-            @endif
+            @endif -->
           </div>
         </div>
       </div>
