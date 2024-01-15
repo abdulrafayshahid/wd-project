@@ -16,7 +16,7 @@
 @section('hero-section')
   <!-- Page Banner Start -->
   <section class="page-banner overlay pt-120 pb-125 rpt-90 rpb-95 lazy"
-    data-bg="{{ asset('assets/admin/img/' . $basicInfo->breadcrumb) }}">
+    data-bg="{{ asset('assets/admin/img/contact_us.png') }}">
     <div class="container">
       <div class="banner-inner">
         <h2 class="page-title">{{ $pageHeading ? $pageHeading->contact_page_title : '' }}</h2>
@@ -36,34 +36,10 @@
   <section class="contact-page py-120 rpy-100">
     <div class="container">
       <div class="row justify-content-between">
-        <div class="col-lg-4">
-          <div class="contact-information rpb-20">
-            <div class="contact-info-item">
-              <i class="far fa-map"></i>
-              <div class="info-content">
-                <h5>{{ __('Our Address') }}</h5>
-                <span>{{ !empty($info->contact_addresses) ? $info->contact_addresses : '' }}</span>
-              </div>
-            </div>
-            <div class="contact-info-item">
-              <i class="far fa-envelope"></i>
-              <div class="info-content">
-                <h5>{{ __('Our Email') }}</h5>
-                <span><a href="#">{{ !empty($info->contact_mails) ? $info->contact_mails : '' }}</a></span>
-              </div>
-            </div>
-            <div class="contact-info-item">
-              <i class="fas fa-phone-alt"></i>
-              <div class="info-content">
-                <h5>{{ __('Our Phone') }}</h5>
-                <span><a href="">{{ !empty($info->contact_numbers) ? $info->contact_numbers : '' }}</a></span>
-              </div>
-            </div>
-          </div>
-        </div>
+       
         <div class="col-lg-8">
           <div class="contact-form">
-            <h3 class="comment-title mb-15">{{ __('Send A Message') }}</h3>
+            <h3 class="comment-title mb-15">{{ __('Get in touch') }}</h3>
             @if (Session::has('success'))
               <div class="alert alert-success">{{ Session::get('success') }}</div>
             @endif
@@ -118,26 +94,53 @@
                 </div>
                 <div class="col-sm-12">
                   <div class="form-group mb-0">
-                    <button type="submit" class="theme-btn showLoader">{{ __('Send Message') }}</button>
+                    <button type="submit" class="theme-btn showLoader">{{ __('POST MESSAGE') }}</button>
                   </div>
                 </div>
               </div>
             </form>
           </div>
         </div>
+        <div class="col-lg-4">
+        <div class="contact-info-item">
+              <i class="fas fa-phone-alt"></i>
+              <div class="info-content">
+                <h5>{{ __('Contact Us') }}</h5>
+                <span><a href="">{{ !empty($info->contact_numbers) ? $info->contact_numbers : '' }}</a></span>
+              </div>
+</div>
+          
+            <div class="contact-info-item">
+              <i class="far fa-envelope"></i>
+              <div class="info-content">
+                <h5>{{ __('Our Email') }}</h5>
+                <span><a href="#">{{ !empty($info->contact_mails) ? $info->contact_mails : '' }}</a></span>
+              </div>
+            </div>
+            <div class="contact-information rpb-20">
+            <div class="contact-info-item">
+              <i class="far fa-map"></i>
+              <div class="info-content">
+                <h5>{{ __('Our Office') }}</h5>
+                <span>{{ !empty($info->contact_addresses) ? $info->contact_addresses : '' }}</span>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    @if (!empty(showAd(3)))
+    <!-- @if (!empty(showAd(3)))
       <div class="text-center mt-30">
         {!! showAd(3) !!}
       </div>
-    @endif
+    @endif -->
   </section>
   <!-- Contact Section End -->
 
   <!-- Map -->
 
-  <div class="contact-page-map">
+  <div class="contact-page-map mb-5">
     <div class="our-location">
       @if (!empty($info->latitude) && !empty($info->longitude))
         <iframe width="100%" height="600" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"

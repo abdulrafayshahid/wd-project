@@ -91,10 +91,14 @@
             $footer_text = str_replace('{year}', $date, $footerInfo->copyright_text);
         }
       @endphp
-      <p>{!! !empty($footerInfo->copyright_text) ? $footer_text : '' !!}</p>
+      <div class="copyright-text">
+        <p>{!! !empty($footerInfo->copyright_text) ? $footer_text : '' !!}</p>
+        
+    </div>
       <!-- Scroll Top Button -->
       <!-- <button class="scroll-top scroll-to-target" data-target="html"><span class="fa fa-angle-up"></span></button> -->
       <div class="social-style-one">
+      
             @if (count($socialMediaInfos) > 0)
               @foreach ($socialMediaInfos as $socialMediaInfo)
                 <a href="{{ $socialMediaInfo->url }}"><i class="{{ $socialMediaInfo->icon }}"></i></a>

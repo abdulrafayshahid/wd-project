@@ -249,7 +249,7 @@ table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>th:first-child:before{
 	color: var(--danger);
 }
 .btn{
-	background: #22b0af;
+	background: #f36b21;
 	color: #fff;
 	text-transform: capitalize;
 	outline: none;

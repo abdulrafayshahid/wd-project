@@ -29,7 +29,7 @@
 @section('hero-section')
   <!-- Page Banner Start -->
   <section class="page-banner overlay pt-120 pb-125 rpt-90 rpb-95 lazy"
-    data-bg="{{ asset('assets/admin/img/' . $basicInfo->breadcrumb) }}">
+    data-bg="{{ asset('assets/admin/img/blog.png') }}">
     <div class="container">
       <div class="banner-inner">
         <h2 class="page-title">
@@ -97,12 +97,12 @@
             </div>
           </div>
 
-          @if (!empty(showAd(3)))
+          <!-- @if (!empty(showAd(3)))
             <div class="text-center">
               {!! showAd(3) !!}
             </div>
-          @endif
-
+          @endif -->
+          @includeIf('frontend.journal.side-bar')
           <div class="blog-details-releted-post mt-45">
             <h3 class="blog-title mb-10">{{ __('Related Blog') }}</h3>
             <hr>
@@ -132,9 +132,10 @@
                             {{ strlen($relatedBlog->title) > 30 ? mb_substr($relatedBlog->title, 0, 30, 'UTF-8') . '...' : $relatedBlog->title }}
                           </h4>
                         </a>
-                        <p>{!! strlen(strip_tags($relatedBlog->content)) > 100
+                        <!-- <p>{!! strlen(strip_tags($relatedBlog->content)) > 100
                             ? mb_substr(strip_tags($relatedBlog->content), 0, 100, 'UTF-8') . '...'
-                            : strip_tags($relatedBlog->content) !!}</p>
+                            : strip_tags($relatedBlog->content) !!}</p> -->
+                            <!-- <h4>...</h4> -->
                         <ul class="blog-footer">
                           <li><i class="fas fa-calendar-alt"></i> {{ date_format($relatedBlog->created_at, 'M d, Y') }}
                           </li>
@@ -159,7 +160,7 @@
         </div>
       </div>
 
-      @includeIf('frontend.journal.side-bar')
+      
     </div>
   </div>
 </section>

@@ -347,6 +347,7 @@
     background: var(--primary-color);
 }
 
+
 @media only screen and (max-width: 1199px) {
     .header-upper {
         padding-top: 15px;
@@ -490,4 +491,5 @@
                     margin-inline-start: 0 !important;
                 }
 }
+
 

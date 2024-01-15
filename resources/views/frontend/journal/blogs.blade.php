@@ -19,7 +19,7 @@
 @section('hero-section')
   <!-- Page Banner Start -->
   <section class="page-banner overlay pt-120 pb-125 rpt-90 rpb-95 lazy"
-    data-bg="{{ asset('assets/admin/img/' . $basicInfo->breadcrumb) }}">
+    data-bg="{{ asset('assets/admin/img/blog.png') }}">
     <div class="container">
       <div class="banner-inner">
         <h2 class="page-title">
@@ -54,7 +54,7 @@
   <section class="blog-page-section py-120 rpy-100">
     <div class="container">
       <div class="row justify-content-center">
-        <div class="col-lg-8">
+        <div class="col-lg-10">
           <div class="blog-standard">
             <div class="row">
               @if (count($blogs) == 0)
@@ -62,8 +62,9 @@
                   <h3 class="mt-40 text-center">{{ __('No Blog Found') . '!' }}</h3>
                 </div>
               @else
+              @includeIf('frontend.journal.side-bar')
                 @foreach ($blogs as $blog)
-                  <div class="col-md-6">
+                  <div class="col-md-4 p-1">
                     <div class="blog-item">
                       <div class="blog-image">
                         <a href="{{ route('blog_details', ['slug' => $blog->slug]) }}">
@@ -78,9 +79,10 @@
                             {{ strlen($blog->title) > 30 ? mb_substr($blog->title, 0, 30, 'UTF-8') . '...' : $blog->title }}
                           </h4>
                         </a>
-                        <p>{!! strlen(strip_tags($blog->content)) > 100
+                        <!-- <p>{!! strlen(strip_tags($blog->content)) > 100
                             ? mb_substr(strip_tags($blog->content), 0, 100, 'UTF-8') . '...'
-                            : strip_tags($blog->content) !!}</p>
+                            : strip_tags($blog->content) !!}</p> -->
+                        <!-- <h4>...</h4> -->
                         <ul class="blog-footer">
                           <li><i class="fas fa-calendar-alt"></i> {{ date_format($blog->created_at, 'M d, Y') }}</li>
                         </ul>
@@ -100,14 +102,14 @@
 
           </div>
 
-          @if (!empty(showAd(3)))
+          <!-- @if (!empty(showAd(3)))
             <div class="text-center mt-30">
               {!! showAd(3) !!}
             </div>
-          @endif
+          @endif -->
         </div>
 
-        @includeIf('frontend.journal.side-bar')
+        
       </div>
     </div>
   </section>

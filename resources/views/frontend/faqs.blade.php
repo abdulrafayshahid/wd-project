@@ -70,6 +70,7 @@
                         aria-controls="{{ 'collapse-' . $faq->id }}">
                         {{ $faq->question }}
                       </a>
+                      <span class="expand-icon" onclick="toggleFaq('{{ 'collapse-' . $faq->id }}')">+</span>
                     </div>
 
                     <div id="{{ 'collapse-' . $faq->id }}" class="collapse {{ $loop->first ? 'show' : '' }}"
@@ -95,3 +96,13 @@
   </section>
   <!--====== FAQ PART END ======-->
 @endsection
+<script>
+  function toggleFaq(collapseId) {
+  var element = document.getElementById(collapseId);
+  if (element.classList.contains('show')) {
+    element.classList.remove('show');
+  } else {
+    element.classList.add('show');
+  }
+}
+</script>

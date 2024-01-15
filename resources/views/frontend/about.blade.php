@@ -17,7 +17,7 @@
 @section('hero-section')
   <!-- Page Banner Start -->
   <section class="page-banner overlay pt-120 pb-125 rpt-90 rpb-95 lazy"
-    data-bg="{{ asset('assets/admin/img/' . $basicInfo->breadcrumb) }}">
+    data-bg="{{ asset('assets/admin/img/about_us.png') }}">
     <div class="container">
       <div class="banner-inner">
         <h2 class="page-title">{{ $pageHeading ? $pageHeading->about_page_title : '' }}</h2>
@@ -97,7 +97,7 @@
   <!-- Feature Section End -->
 
   <!-- Testimonial Section Start -->
-  @if ($secInfo->testimonials_section_status == 1)
+  <!-- @if ($secInfo->testimonials_section_status == 1)
     <section class="testimonial-section pt-120 rpt-80">
       <div class="container">
         <div class="row pb-75 rpb-55">
@@ -157,7 +157,7 @@
       </div>
 
     </section>
-  @endif
+  @endif -->
   <!-- Testimonial Section End -->
 
 
