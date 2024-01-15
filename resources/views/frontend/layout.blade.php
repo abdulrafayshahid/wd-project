@@ -19,7 +19,7 @@
   <!-- Title -->
   <title>@yield('pageHeading') {{ '| ' . $websiteInfo->website_title }}</title>
   <!-- Favicon Icon -->
-  <link rel="shortcut icon" href="{{ asset('assets/admin/img/' . $websiteInfo->favicon) }}" type="image/x-icon">
+  <link rel="shortcut icon" href="{{ asset('assets/admin/img/favicon.png') }}" type="image/x-icon">
   {{-- include styles --}}
   @includeIf('frontend.partials.styles')
   @yield('custom-style')
