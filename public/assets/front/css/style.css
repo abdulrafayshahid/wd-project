@@ -4196,7 +4196,7 @@ html[dir*=rtl] .modal .close {
 .header-right a {
     text-decoration: none;
     color: white;
-    margin-left: 20px;
+    padding: 10px;
     font-size: 14px;
 }
 
