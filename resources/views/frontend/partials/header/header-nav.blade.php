@@ -190,13 +190,22 @@ header {
 
         </div>
     </div>
-    <nav class="navbar">
-        <a href="#">Home</a>
-        <a href="#">Events</a>
-        <a href="#">Organizers</a>
-        <a href="#">Pages</a>
-        <a href="#">Shop</a>
-        <a href="#">Contact</a>
-        <a href="#">Blog</a>
-    </nav>
+    <nav class="navbar rf-navigation clearfix">
+    <!-- Loop through links -->
+    @foreach ($links as $link)
+        <!-- Check if link has children -->
+        @if (!array_key_exists('children', $link))
+            <li><a href="{{ get_href($link, $currentLanguageInfo->id) }}">{{ $link['text'] }}</a></li>
+        @else
+            <li class="dropdown">
+                <a href="{{ get_href($link, $currentLanguageInfo->id) }}">{{ $link['text'] }}</a>
+                <div class="dropdown-content">
+                    @foreach ($link['children'] as $level2)
+                        <a href="{{ get_href($level2, $currentLanguageInfo->id) }}">{{ $level2['text'] }}</a>
+                    @endforeach
+                </div>
+            </li>
+        @endif
+    @endforeach
+</nav>
 </header>

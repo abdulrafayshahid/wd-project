@@ -4299,7 +4299,7 @@ html[dir*=rtl] .modal .close {
     background-color: white;
     color: white;
 }
-.dropdown-menu {
+.rf-dropdown-menu {
   display: none;
   position: absolute;
   color: #f36b21 !important;
@@ -4315,7 +4315,40 @@ html[dir*=rtl] .modal .close {
 }
 
 .rf-dropdown-item:hover {
-    background-color: #f36b21; /* This changes the background on hover */
-    color: white !important; /* Optional: Change text color on hover for better readability */
+    background-color: #f36b21; 
+    color: white !important; 
 }
 
+.rf-navigation li {
+    position: relative; 
+}
+
+.rf-navigation .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white; 
+    min-width: 200px; 
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); 
+    z-index: 1;
+}
+
+.rf-navigation li:hover > .dropdown-content {
+    display: block;
+}
+
+.rf-navigation .dropdown-content a {
+    padding: 10px 15px;
+    display: block;
+    text-decoration: none;
+}
+
+.rf-navigation .dropdown-content a:hover {
+    background-color: #f36b21;
+    color: #fff; 
+}
+
+.rf-navigation a:hover {
+    padding: 10px 15px;
+    background-color: #f36b21; 
+    color: #fff; 
+}
