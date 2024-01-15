@@ -4277,6 +4277,7 @@ html[dir*=rtl] .modal .close {
 .rf-btn2 {
     padding: 10px 20px;
     margin-left: 20px;
+    margin-right: 20px;
     border: 2px solid white !important;
     background-color: white;
     color: #f36b21 !important;
@@ -4352,4 +4353,39 @@ html[dir*=rtl] .modal .close {
     background-color: #f36b21; 
     color: #fff; 
     border-radius: 20px;
+}
+
+@media screen and (max-width: 872px) {
+    .header-right {
+        flex-direction: column;
+        align-items: end;
+    }
+
+    .header-right a {
+        font-size: 10px; 
+        margin-top: 5px;
+       
+    }
+
+    .rf-btn, .rf-btn2 {
+        padding: 5px 10px;
+        font-size: 12px;
+        margin-right:0%;
+        
+    }
+
+    .rf-navigation {
+        display: none;
+        
+    }
+    
+    .deals{
+        display: none;
+    }
+
+    .menu-right{
+        margin-right:0%;
+        padding: 0%;
+        align-self: start;
+    }
 }
