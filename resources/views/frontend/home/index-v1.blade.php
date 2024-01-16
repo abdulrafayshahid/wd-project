@@ -46,9 +46,8 @@
       <!-- <h1>
         {{ $heroSection ? $heroSection->first_title : __('Event Ticketing and Booking System') }}
       </h1> -->
-      <h2 style="float: left;">Our vision Our innovation</h2><br>
-      <h2 style="float: left;">Event Solutions</h2><br><br><br><br>
-      <h4 style="float: left; color: grey">Exploring the World of the McLaren Technology Centre</h4>
+      <h2>Our Vision<br>Our Innovation<br>Event Solutions</h2><br>
+      <h3 style="color: grey;">Exploring the World of the McLaren<br>Technology Centre</h3>
       <!-- <p>
         {{ $heroSection ? $heroSection->second_title : __('This is an affordable and powerful event ticketing platform for event organisers, promoters, and managers. Easily create, promote and sell tickets to your events of every type and size.') }}
       </p> -->

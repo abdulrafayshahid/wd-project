@@ -264,9 +264,10 @@ a.theme-btn {
     transition: 0.5s;
     font-weight: 700;
     text-align: center;
-    padding: 15px 33px;
-    border-radius: 5px;
-    display: inline-block;
+    padding: 10px 220px;
+    border-radius: 4px;
+    display: block; /* Changed from inline-block to block */
+    margin: 0 auto; /* Added to center the button */
     background: #f36b21;
     border: 1px solid #f36b21;
 }
@@ -274,7 +275,7 @@ a.theme-btn {
 .theme-btn:hover,
 a.theme-btn:hover {
     background: transparent;
-    color: var(--primary-color);
+    color: #f36b21;
 }
 
 /* Learn More Btn */
@@ -468,7 +469,7 @@ a.theme-btn:hover {
 
 /* overlay */
 .overlay {
-    z-index: 1;
+    z-index: -1;
     position: relative;
 }
 
@@ -559,22 +560,26 @@ display: inline-block;
     text-align: center;
     float: left;
     width: 100%;
-    padding-top: 5px;
+    padding-top: 10px;
+    
 }
 
 .bottom-nav div {
     font-size: 1.2em;
     display: inline-block;
-    color: white;
+    color: rgb(70, 67, 67);
+    font-weight: 600;
     
-    padding: 11px 65px;
+    padding: 11px 50px;
     margin: 0px 5%;
     border-radius: 10px 10px 0 0;
     cursor: pointer;
+   
 }
 
 .bottom-nav .active{
     background-color: #f36b21;
+    color: white;
 }
 
 .bottom-nav div:not(:last-child):after {
@@ -608,7 +613,7 @@ Copy code
 .hero-content {
    
     max-width: 930px;
-    text-align: center;
+    /* text-align: center; */
 }
 
 .hero-content p,
@@ -2435,10 +2440,14 @@ blockquote {
     margin-bottom: 15px;
 }
 
-.copyright-area {
+/* .copyright-area {
  
     border-top: 1px solid rgba(232, 232, 233, 0.1);
     
+} */
+
+.rf-lower-footer{
+    padding: 20px 90px 20px 90px;
 }
 
 .search-box {
@@ -2447,7 +2456,8 @@ blockquote {
     height: 50px;
     border-radius: 20px;
     padding: 10px;
-    max-width: 500px
+    max-width: 500px;
+    
 }
 
 .search-box .search-txt {
@@ -3180,10 +3190,10 @@ blockquote {
 
 .cookie-consent {
     position: fixed;
-    background-color: #262938;
+    background-color: #f36b21;
     bottom: 0px;
     width: 100%;
-    padding: 15px 0px;
+    padding: 10px 0px;
     z-index: 10000000000;
     color: #fff;
 }
@@ -3197,7 +3207,7 @@ blockquote {
 button.cookie-consent__agree {
     padding: 5px 16px;
     border: none;
-    background-color: #25D06F;
+    background-color: #fbb47f;
     color: #fff;
     cursor: pointer;
     border-radius: 3px;
@@ -4357,7 +4367,7 @@ html[dir*=rtl] .modal .close {
 
 @media screen and (max-width: 872px) {
     .header-right {
-        flex-direction: column;
+        /* flex-direction: column; */
         align-items: end;
     }
 
@@ -4371,6 +4381,9 @@ html[dir*=rtl] .modal .close {
         padding: 5px 10px;
         font-size: 12px;
         margin-right:0%;
+        margin-bottom: 10px;
+        vertical-align: top;
+     
         
     }
 
@@ -4380,7 +4393,7 @@ html[dir*=rtl] .modal .close {
     }
     
     .deals{
-        display: none;
+       display: none;
     }
 
     .menu-right{
@@ -4389,3 +4402,32 @@ html[dir*=rtl] .modal .close {
         align-self: start;
     }
 }
+
+.rf-copyright{
+    display: inline-block;
+    margin-bottom: 0px;
+    margin-top: 10px;
+}
+
+.termsandcondition{
+    background: transparent;
+}
+
+.form-group .label-and-link {
+    display: flex;
+  
+
+  }
+
+  .rf-center {
+    display: flex;
+    justify-content: center; /* This centers the content horizontally */
+    align-items: center;     /* This centers the content vertically */
+    height: 100%;            /* Set a height, or it defaults to content height */
+  }
+  
+  .rf-center p {
+    margin: 0; /* Removes default margin of <p> if needed */
+  }
+  
+ 

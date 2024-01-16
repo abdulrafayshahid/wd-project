@@ -55,8 +55,13 @@
         <form id="login-form" name="login_form" class="login-form"
           action="{{ route('customer.create') }}" method="POST">
           @csrf
-
+          <div class="form-group mt-3 mb-0">
+            <h2>SIGN UP</h2>
+            <p>{{ __('Already have an account') }}? <a class="text-info"
+                href="{{ route('customer.login') }}">{{ __('Login Now') }}</a></p>
+          </div>
           <div class="row">
+        
             <div class="col-sm-6">
               <div class="form-group">
                 <label for="fname"> {{ __('First Name') }} *</label>
@@ -132,7 +137,7 @@
               <div class="form-group">
                                 <div class="d-flex align-items-baseline">
                                     <input type="checkbox" name="termsandcondition" class="termsandconditioncheckbox">
-                                    <p class="ml-2 m-0">Accept All Terms and Conditions ? <button type="button" class="text-info termsandcondition">Terms & Consitions</button></p>
+                                    <p class="ml-2 m-0">Accept All Terms and Conditions? <button type="button" class="text-info termsandcondition">Terms & Consitions</button></p>
                                     
                                 </div>
                                 @error('termsandcondition')
@@ -144,10 +149,7 @@
           <div class="form-group mb-0">
             <button class="theme-btn br-30 showLoader" type="submit">{{ __('Signup') }}</button>
           </div>
-          <div class="form-group mt-3 mb-0">
-            <p>{{ __('Already have an account') }} ?<a class="text-info"
-                href="{{ route('customer.login') }}">{{ __('Login Now') }}</a></p>
-          </div>
+          
         </form>
       </div>
     </div>

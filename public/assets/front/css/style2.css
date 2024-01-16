@@ -5747,6 +5747,7 @@ span.flatpickr-weekday {
 }
 .overlay:before{
     background: none;
+    opacity: 0.7 !important;
 }
 .activity-key-details__term[data-v-369d6368] {
     font-size: 1rem;

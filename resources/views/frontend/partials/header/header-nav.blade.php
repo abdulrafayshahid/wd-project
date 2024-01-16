@@ -173,21 +173,40 @@ header {
                 </form>
               
               </div>
+              @if (!Auth::guard('customer')->check())
             <div class="dropdown">
             <button type="button" class="btn rf-btn">Customer</button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-    <a class="rf-dropdown-item" href="#">Login</a>
-    <a class="rf-dropdown-item" href="#">Signup</a>
+    <a class="rf-dropdown-item" href="{{ route('customer.login') }}">Login</a>
+    <a class="rf-dropdown-item" href="{{ route('customer.signup') }}">Signup</a>
   </div>
 </div>
+@else
+<div class="dropdown">
+            <button type="button" class="btn rf-btn">{{ Auth::guard('customer')->user()->username }}</button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+    <a class="rf-dropdown-item" href="{{ route('customer.dashboard') }}">Dashboard</a>
+    <a class="rf-dropdown-item" href="{{ route('customer.logout') }}">Logout</a>
+  </div>
+</div>
+@endif
+@if (!Auth::guard('organizer')->check())
 <div class="dropdown">
             <button type="button" class="btn rf-btn2">Organizer</button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-    <a class="rf-dropdown-item" href="#">Login</a>
-    <a class="rf-dropdown-item" href="#">Signup</a>
+    <a class="rf-dropdown-item" href="{{ route('organizer.login') }}">Login</a>
+    <a class="rf-dropdown-item" href="{{ route('organizer.signup') }}">Signup</a>
   </div>
 </div>
-
+@else
+<div class="dropdown">
+            <button type="button" class="btn rf-btn2">{{ Auth::guard('organizer')->user()->username }}</button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+    <a class="rf-dropdown-item" href="{{ route('organizer.dashboard') }}">Dashboard</a>
+    <a class="rf-dropdown-item" href="{{ route('organizer.logout') }}">Logout</a>
+  </div>
+</div>
+@endif
         </div>
     </div>
     <nav class="navbar rf-navigation clearfix">

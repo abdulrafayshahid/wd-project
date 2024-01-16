@@ -52,6 +52,10 @@ $metaDescription = !empty($seo->meta_description_organizer_signup) ? $seo->meta_
             <div class="col-lg-8">
                 <form id="login-form" name="login_form" class="login-form" action="{{ route('organizer.create') }}" method="POST">
                     @csrf
+                    <div class="form-group mt-3" style="margin-bottom: 30px !important">
+                    <h2>SIGN UP</h2>
+                        <p>{{ __('Already have an account') }}? <a class="text-info" href="{{ route('organizer.login') }}">{{ __('Login Now') }}</a></p>
+                    </div>
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="form-group">
@@ -166,7 +170,7 @@ $metaDescription = !empty($seo->meta_description_organizer_signup) ? $seo->meta_
                             <div class="form-group">
                                 <div class="d-flex align-items-baseline">
                                     <input type="checkbox" name="termsandcondition" class="termsandconditioncheckbox">
-                                    <p class="ml-2 m-0">Accept All Terms and Conditions ? <button type="button" class="text-info termsandcondition">Terms & Consitions</button></p>
+                                    <p class="ml-2 m-0">Accept All Terms and Conditions? <button type="button" class="text-info termsandcondition">Terms & Consitions</button></p>
                                 </div>
                                 @error('termsandcondition')
                                 <p class="text-danger">Please accept Tems And Conditions Before Signup</p>
@@ -177,9 +181,7 @@ $metaDescription = !empty($seo->meta_description_organizer_signup) ? $seo->meta_
                     <div class="form-group mb-0">
                         <button class="theme-btn br-30" type="submit" data-loading-text="Please wait...">{{ __('Signup') }}</button>
                     </div>
-                    <div class="form-group mt-3 mb-0">
-                        <p>{{ __('Already have an account') }}? <a class="text-info" href="{{ route('organizer.login') }}">{{ __('Login Now') }}</a></p>
-                    </div>
+                    
                 </form>
             </div>
         </div>

@@ -81,23 +81,20 @@
     <div class="row" style="
     background-color: #f36b21;
 ">
-      <div class="col-md-12">
+      <div class="col-md-12 rf-lower-footer">
         
       <div class="copyright-area">
       
-      @php
+      <!-- @php
         $date = Date('Y');
         if (!empty($footerInfo->copyright_text)) {
             $footer_text = str_replace('{year}', $date, $footerInfo->copyright_text);
         }
-      @endphp
+      @endphp -->
       <div class="copyright-text">
-        <p>{!! !empty($footerInfo->copyright_text) ? $footer_text : '' !!}</p>
-        
-    </div>
-      <!-- Scroll Top Button -->
-      <!-- <button class="scroll-top scroll-to-target" data-target="html"><span class="fa fa-angle-up"></span></button> -->
-      <div class="social-style-one">
+        <!-- {!! !empty($footerInfo->copyright_text) ? $footer_text : '' !!} -->
+        <p class="rf-copyright">Copyright ©2024. All Rights Reserved.</p>
+        <div class="social-style-one">
       
             @if (count($socialMediaInfos) > 0)
               @foreach ($socialMediaInfos as $socialMediaInfo)
@@ -105,6 +102,10 @@
               @endforeach
             @endif
           </div>
+    </div>
+      <!-- Scroll Top Button -->
+      <!-- <button class="scroll-top scroll-to-target" data-target="html"><span class="fa fa-angle-up"></span></button> -->
+      
     
     </div>
       </div>

@@ -101,7 +101,10 @@
               @enderror
             </div>
             <div class="form-group">
-              <label for="password">{{ __('Password') . ' *' }}</label>
+            <div class="label-and-link">
+    <label for="password">{{ __('Password') . ' *' }}</label>
+    <p style="margin-left: 10px; color: grey; text-decoration: underline;"><a href="{{ route('customer.forget.password') }}">{{ __('   Forgot Password') . '?' }}</a></p>
+  </div>
               <input type="password" name="password" value="" id="password" class="form-control"
                 placeholder="{{ __('Enter Password') }}">
               @error('password')
@@ -123,10 +126,10 @@
               <button class="theme-btn br-30" type="submit"
                 data-loading-text="Please wait...">{{ __('Login') }}</button>
             </div>
-            <div class="form-group mt-3 d-flex justify-content-between mb-0">
-              <p>{{ __('Don`t have an account') . '?' }} <a class="text-info"
+            <div class="form-group mt-3 mb-0 rf-center">
+              <p>{{ __('Not a member') . '?' }} <a class="text-info"
                   href="{{ route('customer.signup') }}">{{ __('Signup Now') }}</a></p>
-              <p><a href="{{ route('customer.forget.password') }}">{{ __('Lost your password') . '?' }}</a></p>
+              
             </div>
           </form>
         </div>
