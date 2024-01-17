@@ -147,7 +147,7 @@
             </div>
           </div>
           <div class="form-group mb-0">
-            <button class="theme-btn br-30 showLoader" type="submit">{{ __('Signup') }}</button>
+            <button class="theme-btn rf-theme-btn br-30 showLoader" type="submit">{{ __('Signup') }}</button>
           </div>
           
         </form>

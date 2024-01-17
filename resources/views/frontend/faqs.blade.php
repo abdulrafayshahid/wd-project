@@ -53,18 +53,20 @@
 
   <!--====== FAQ PART START ======-->
   <section class="faq-area pt-80 pb-80">
-    <div class="container">
+    <div class="container faq-container">
       <div class="row">
         <div class="col">
+        
           @if (count($faqs) == 0)
             <h3 class="text-center">{{ __('No FAQ Found') . '!' }}</h3>
           @else
             <div class="faq-accordion">
               <div class="accordion" id="accordionExample">
+                <div style="margin-bottom: 20px"><h3>Frequently Asked Questions & Answers Here</h3></div>
                 @foreach ($faqs as $faq)
                   <div class="card">
                     <div class="card-header" id="{{ 'heading-' . $faq->id }}">
-                      <a class="{{ $loop->first ? '' : 'collapsed' }}" href="" data-toggle="collapse"
+                      <a class="{{ $loop->first ? '' : 'collapsed' }} a-bold" href="" data-toggle="collapse"
                         data-target="{{ '#collapse-' . $faq->id }}"
                         aria-expanded="{{ $loop->first ? 'true' : 'false' }}"
                         aria-controls="{{ 'collapse-' . $faq->id }}">
@@ -87,11 +89,11 @@
         </div>
       </div>
 
-      @if (!empty(showAd(3)))
+      <!-- @if (!empty(showAd(3)))
         <div class="text-center mt-30">
           {!! showAd(3) !!}
         </div>
-      @endif
+      @endif -->
     </div>
   </section>
   <!--====== FAQ PART END ======-->

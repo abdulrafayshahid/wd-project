@@ -6548,10 +6548,10 @@ section.event-details-section {
   color: #fff;
 }
 
-.copyright-area {
+/* .copyright-area {
   padding: 20px 0;
   border-top: 1px solid rgba(255, 255, 255, 0.2);
-}
+} */
 
 .copyright-area .social-link ul li {
   display: inline-block;

@@ -264,7 +264,7 @@ a.theme-btn {
     transition: 0.5s;
     font-weight: 700;
     text-align: center;
-    padding: 10px 220px;
+    padding: 10px 20px;
     border-radius: 4px;
     display: block; /* Changed from inline-block to block */
     margin: 0 auto; /* Added to center the button */
@@ -571,7 +571,7 @@ display: inline-block;
     font-weight: 600;
     
     padding: 11px 50px;
-    margin: 0px 5%;
+    margin: 0px 1.7%;
     border-radius: 10px 10px 0 0;
     cursor: pointer;
    
@@ -962,7 +962,7 @@ Copy code
     height: var(--size);
     line-height: var(--size);
     border-radius: 0 0 5px 5px;
-    background-color: var(--primary-color);
+    background-color: #f36b21;
     color: #fff;
     text-align: center;
     z-index: 1;
@@ -1004,14 +1004,14 @@ Copy code
     transition: 0.5s;
     background: white;
     border-radius: 50%;
-    color: var(--primary-color);
-    border: 1px solid var(--primary-color);
+    color: #f36b21;
+    border: 1px solid #f36b21;
 }
 
 .slick-arrow:focus,
 .slick-arrow:hover {
     color: white;
-    background: var(--primary-color);
+    background: #f36b21;
 }
 
 /* Event Details */
@@ -1252,7 +1252,7 @@ Copy code
 }
 
 .click-show .read-more-btn {
-    color: var(--primary-color);
+    color: #f36b21;
     cursor: pointer;
     font-size: 14px;
     font-weight: 500;
@@ -1416,7 +1416,7 @@ Copy code
 }
 
 .cart-single-item .avilable i {
-    color: var(--primary-color);
+    color: #f36b21;
     margin-right: 2px;
     font-size: 14px;
 }
@@ -1899,7 +1899,7 @@ Copy code
     font-size: 14px;
     padding: 5px 10px;
     border-radius: 5px;
-    background: var(--primary-color);
+    background: #f36b21;
 }
 
 .rating-review .in-stock i {
@@ -1909,8 +1909,8 @@ Copy code
 
 
 .shop-price {
-    font-weight: 700;
-    color: var(--heading-color);
+    /* font-weight: 700; */
+    color: grey;
 }
 
 .product-meta li {
@@ -1919,7 +1919,7 @@ Copy code
 
 .product-meta li a,
 .product-meta li span {
-    color: var(--primary-color);
+    color: #f36b21;
 }
 
 .product-information-tab {
@@ -3382,14 +3382,14 @@ span.cookie-consent__message {
     content: "";
     width: 100%;
     height: 2px;
-    background-color: var(--primary-color);
+    background-color: #f36b21;
     visibility: hidden;
     opacity: 0;
     transition: all 0.3s;
 }
 
 .author-area .author-tabs .nav-link:is(.active) {
-    color: var(--primary-color);
+    color: #f36b21;
 }
 
 .author-area .author-tabs .nav-link:is(.active)::after {
@@ -3529,7 +3529,7 @@ span.cookie-consent__message {
 }
 
 .author-area .card .btn-text:hover {
-    color: var(--primary-color);
+    color: #f36b21;
 }
 
 .author-area .badge-list {
@@ -3616,7 +3616,7 @@ span.cookie-consent__message {
     text-align: center;
     padding: 0 30px;
     line-height: 53px;
-    background-color: var(--primary-color) !important;
+    background-color: #f36b21 !important;
 }
 
 .authors-search-filter .search-filter-form .theme-btn:hover {
@@ -4173,7 +4173,7 @@ html[dir*=rtl] .modal .close {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
+    padding: 5px 50px;
 }
 
 .logo img {
@@ -4215,7 +4215,7 @@ html[dir*=rtl] .modal .close {
     padding: 5px 12px;
     border-radius: 5px;
     font-weight: bold;
-    margin-right: 200px;
+    margin-right: 120px;
 }
 
 .header-right .wishlist,
@@ -4362,7 +4362,7 @@ html[dir*=rtl] .modal .close {
     padding: 10px 15px;
     background-color: #f36b21; 
     color: #fff; 
-    border-radius: 20px;
+    border-radius: 5px;
 }
 
 @media screen and (max-width: 872px) {
@@ -4401,6 +4401,47 @@ html[dir*=rtl] .modal .close {
         padding: 0%;
         align-self: start;
     }
+
+    .rf-lower-footer{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 392px) {
+    h2{
+        font-size: 20px;
+    }
+    
+    h3{
+        font-size: 16px;
+    }
+
+    .rf-hero-section{
+        height: 400px;
+    }
+
+    .search-box {
+        max-width: 300px;
+    }
+
+    .res-bottom-nav{
+        background-color: #fbb47f;
+    text-align: center;
+    float: left;
+    width: 110%;
+    padding-top: 10px;
+    color: black;
+    }
+
+    .res-bottom-nav .res-active{
+        background-color: #f36b21;
+        color: white;
+    }
+
+    .res-bottom-nav div{
+        padding: 10px;
+    }
+
 }
 
 .rf-copyright{
@@ -4429,5 +4470,20 @@ html[dir*=rtl] .modal .close {
   .rf-center p {
     margin: 0; /* Removes default margin of <p> if needed */
   }
+
+  .rf-theme-btn{
+    padding: 10px 220px;
+  }
+
+  .a-bold{
+    font-weight: bold;
+  }
   
- 
+  .faq-container{
+    padding-left: 100px !important;
+    padding-right: 200px !important;
+  }
+  
+  .rf-review{
+    padding-right: 260px;
+  }

@@ -49,7 +49,7 @@
         $avarage_rating = round($avarage_rating, 2);
       @endphp
       <div class="shop-details-content">
-        <div class="row justify-content-between pb-45">
+        <div class="row justify-content-between">
           <div class="col-lg-6">
             <div class="product-gallery">
               @foreach ($galleries as $gallery)
@@ -72,6 +72,14 @@
           <div class="col-lg-6 pl-lg-5">
             <div class="descriptions rmt-55 mb-50 rmb-35">
               <h3>{{ $product->title }}</h3>
+              
+              <div class="shop-price mb-15" dir="ltr">
+                <del style="margin-right: 5px"><span class="price">
+                    {{ symbolPrice($product->previous_price) }}
+                  </span></del>
+                <b class="current-price">
+                  {{ symbolPrice($product->current_price) }}</b>
+              </div>
               <div class="rating-review d-flex align-items-center pt-5 mb-15">
                 @if ($basicInfo->is_shop_rating == 1)
                   <div class="ratting">
@@ -82,6 +90,10 @@
                     </div>
                   </div>
                 @endif
+                @if ($basicInfo->is_shop_rating == 1)
+              <li><a href="#review" data-toggle="tab" class="rf-review">{{ __('Review') }} ({{ count($reviews) }})</a>
+              </li>
+            @endif
 
 
                 @if ($product->type == 'digital')
@@ -94,13 +106,6 @@
                   @endif
                 @endif
 
-              </div>
-              <div class="shop-price mb-15" dir="ltr">
-                <del><span class="price">
-                    {{ symbolPrice($product->previous_price) }}
-                  </span></del>
-                <b class="current-price">
-                  {{ symbolPrice($product->current_price) }}</b>
               </div>
               <p>{{ $product->summary }}</p>
               <div class="add-to-cart pt-15">
@@ -145,18 +150,18 @@
       </div>
 
       <div class="row">
-        <div class="col-lg-9">
+        <div class="col-lg-11">
 
-          <ul class="nav product-information-tab mb-30">
+          <!-- <ul class="nav product-information-tab mb-30">
             <li><a href="#details" data-toggle="tab" class="active show">{{ __('Description') }}</a></li>
             @if ($basicInfo->is_shop_rating == 1)
               <li><a href="#review" data-toggle="tab" class="">{{ __('Review') }} ({{ count($reviews) }})</a>
               </li>
             @endif
-          </ul>
+          </ul> -->
           <div class="tab-content">
             <div class="tab-pane fade active show" id="details">
-              <h4>{{ __('Description') }}</h4>
+              <!-- <h4>{{ __('Description') }}</h4> -->
               <div class="summernote-content">
                 {!! $product->description !!}
               </div>
@@ -254,11 +259,11 @@
           </div>
         </div>
       </div>
-      @if (!empty(showAd(3)))
+      <!-- @if (!empty(showAd(3)))
         <div class="text-center mt-4">
           {!! showAd(3) !!}
         </div>
-      @endif
+      @endif -->
 
     </div>
   </section>

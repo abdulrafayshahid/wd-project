@@ -39,7 +39,7 @@
           </ol>
         </nav>
         <div class="authors-search-filter mt-30">
-          <form {{ route('frontend.all.organizer') }}>
+          <form action="{{ route('frontend.all.organizer') }}">
             <div class="search-filter-form">
               <div class="row no-gutters justify-content-center">
                 <div class="search-item">
@@ -78,7 +78,7 @@
           <div class="product-filter">
             <div class="row justify-content-between align-items-center">
               <div class="col-lg-3 col-md-4">
-                <h6 class="mb-20">{{ __('Total organizer showing') }}: {{ count($collection) }}</h6>
+                <h6 class="mb-20">{{ __('Total organizers showing') }}: {{ count($collection) }}</h6>
               </div>
             </div>
           </div>

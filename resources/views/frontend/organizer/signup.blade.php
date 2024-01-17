@@ -179,7 +179,7 @@ $metaDescription = !empty($seo->meta_description_organizer_signup) ? $seo->meta_
                         </div>
                     </div>
                     <div class="form-group mb-0">
-                        <button class="theme-btn br-30" type="submit" data-loading-text="Please wait...">{{ __('Signup') }}</button>
+                        <button class="theme-btn rf-theme-btn br-30" type="submit" data-loading-text="Please wait...">{{ __('Signup') }}</button>
                     </div>
                     
                 </form>

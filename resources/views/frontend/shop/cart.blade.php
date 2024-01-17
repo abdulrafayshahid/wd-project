@@ -129,11 +129,11 @@
       @if ($cart_items != null)
         <div class="cart-total-price mt-40">
           <div class="row justify-content-end text-center text-lg-left">
-            <div class="col-lg-6">
+            <div class="col-lg-2">
               <div class="update-shopping text-lg-right">
                 @csrf
                 <a id="cartUpdate" data-href="{{ route('cart.update') }}"
-                  class="theme-btn mt-10">{{ __('update cart') }}</a>
+                  class="theme-btn mt-10 mb-5">{{ __('update cart') }}</a>
                 <a href="{{ route('shop.checkout') }}" class="theme-btn mt-10">{{ __('checkout') }}</a>
               </div>
             </div>

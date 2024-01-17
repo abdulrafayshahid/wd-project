@@ -88,7 +88,7 @@
             @endif
 
             <div class="form-group mb-0">
-              <button class="theme-btn br-30" type="submit"
+              <button class="theme-btn rf-theme-btn br-30" type="submit"
                 data-loading-text="Please wait...">{{ __('Login') }}</button>
             </div>
             <div class="form-group mt-3 mb-0 rf-center">

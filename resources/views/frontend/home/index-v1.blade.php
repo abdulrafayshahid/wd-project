@@ -36,12 +36,12 @@
         </div>
         <button type="submit" class="theme-btn">{{ $heroSection ? $heroSection->first_button : __('Search') }}</button>
       </form> -->
+      <form id="event-search" class="mt-35" name="event-search" action="{{ route('events') }}" method="get">
       <div class="search-box">
-    <input type="text" class="search-txt" placeholder=" Where Are You Going">
-    <button type="submit" class="search-btn">
-       Search <!-- This is a placeholder for a search icon -->
-    </button>
+    <input type="search" id="search" class="search-txt search-input" placeholder=" Where Are You Going">
+    <button type="submit" class="search-btn">{{ $heroSection ? $heroSection->first_button : __('Search') }}</button>
     </div><br>
+    </form>
     <div class="hero-content">
       <!-- <h1>
         {{ $heroSection ? $heroSection->first_title : __('Event Ticketing and Booking System') }}
@@ -56,11 +56,53 @@
   </div>
   </section>
   <div class="bottom-nav">
-    <div class="active">Sports</div>
-    <div>Culture</div>
-    <div>Nature</div>
-    <div>Food</div>
+    <div class="active res-active">Wedding</div>
+    <div>Business</div>
+    <div>Career</div>
+    <div>Conference</div>
+    <div>Sports</div>
   </div>
+
+  <script>
+function updateLayout() {
+  var mediaQuery = window.matchMedia('(max-width: 392px)');
+  var bottomNav = document.querySelector('.bottom-nav');
+  var largemediaQuery = window.matchMedia('(min-width: 392px)');
+
+  if (mediaQuery.matches) {
+    // For smaller screens
+    bottomNav.classList.remove('bottom-nav');
+    bottomNav.classList.add('row');
+    bottomNav.classList.add('res-bottom-nav');
+
+    bottomNav.querySelectorAll('div').forEach(function (div) {
+      div.classList.add('col-6');
+      div.classList.remove('active');
+      div.classList.add('res-active');
+    });
+  } else if (largemediaQuery.matches) {
+    // For larger screens, revert to original classes if needed
+    bottomNav.classList.add('bottom-nav');
+    bottomNav.classList.remove('row');
+    bottomNav.classList.remove('res-bottom-nav');
+
+    var divElements = bottomNav.querySelectorAll('div');
+    for (var i = 0; i < divElements.length; i++) {
+        divElements[i].classList.remove('col-6');
+        divElements[i].classList.add('active');
+        divElements[i].classList.remove('res-active');
+    break
+}
+  
+  }
+}
+
+// Attach the function to the window resize event
+window.addEventListener('resize', updateLayout);
+
+// Call the function initially
+updateLayout();
+</script>
 
   
   <!-- Hero Section End -->
