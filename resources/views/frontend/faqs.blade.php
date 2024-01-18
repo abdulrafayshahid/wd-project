@@ -108,3 +108,31 @@
   }
 }
 </script>
+<script>
+function updateLayout() {
+  var mediaQuery = window.matchMedia('(max-width: 540px)');
+  var faqContainer = document.querySelector('.faq-container');
+ 
+
+  if (mediaQuery.matches) {
+    // For smaller screens
+    faqContainer.classList.remove('faq-container');
+    faqContainer.classList.add('rf-faq-container');
+  
+  } else {
+    // For larger screens, revert to original classes if needed
+    faqContainer.classList.add('faq-container');
+    faqContainer.classList.remove('rf-faq-container');
+  
+  }
+}
+
+// Attach the function to the window resize event
+window.addEventListener('resize', updateLayout);
+
+// Call the function initially
+$( document ).ready(function() {
+  updateLayout();
+});
+
+</script>

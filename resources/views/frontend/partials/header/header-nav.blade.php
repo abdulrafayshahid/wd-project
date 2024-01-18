@@ -1,3 +1,82 @@
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+
+<script>
+  function updateLayout() {
+  var mediaQuery = window.matchMedia('(max-width: 540px)');
+  var header = document.querySelector('header');
+  var largemediaQuery = window.matchMedia('(min-width: 540px)');
+
+  if (mediaQuery.matches) {
+    // For smaller screens
+    header.classList.remove('responsive-header');
+    
+
+  } else if (largemediaQuery.matches) {
+    // For larger screens, revert to original classes if needed
+    header.classList.add('responsive-header');
+    
+  }
+}
+
+window.addEventListener('resize', updateLayout);
+window.addEventListener('DOMContentLoaded', updateLayout); // Ensures this runs after the DOM is fully loaded
+updateLayout();
+</script>
+<style>
+
+  @media screen and (max-width: 540px) {
+    .top-header{
+      display: none;
+    }
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    text-align: center;
+}
+
+.upper-header {
+    background-color: white;
+    color: black;
+    font-size: 10px;
+    border-color: whitesmoke;
+}
+
+.lower-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: whitesmoke;
+}
+
+.logo {
+    height: 50px; /* Adjust as needed */
+}
+
+.menu-icon {
+    font-size: 24px; /* Adjust as needed */
+}
+
+}
+</style>
+
+<header class="responsive-header">
+        <!-- Upper Header -->
+        <div class="upper-header">
+            Deals Of The Week: BIG Island Hopping & Sailing Deals! <strong>Up To 25% Off</strong>
+        </div>
+
+        <!-- Lower Header -->
+        <div class="lower-header">
+        <img src="{{ asset('assets/admin/img/footer_logo/footer.png')}}" alt="Logo" class="logo">
+            <i class="fa-solid fa-bars menu-icon" style="color: #f36b21"></i>
+        </div>
+    </header>
 <!-- <header class="main-header">
 
  
@@ -162,35 +241,52 @@ header {
         </div>
         <div class="header-right">
             <a href="#" class="deals">Deals Of The Week: BIG Island Hopping & Sailing Deals! Up To 25% Off</a>
-            <div class="menu-right lang-change">
-                <form action="{{ route('change_language') }}" method="get">
-                  <select name="lang_code" id="language" class="form-control" onchange="this.form.submit()">
-                    @foreach ($allLanguageInfos as $item)
-                      <option value="{{ $item->code }}"
-                        {{ $item->code == $currentLanguageInfo->code ? 'selected' : '' }}>{{ $item->name }}</option>
+            <a class="rf-a rf-a-hide" href="{{ route('organizer.login') }}">{{ __('  Become a Supplier') }}</a>
+            <i class="fa fa-heart rf-a-hide" aria-hidden="true" style="color: white"></i>
+            <a class="rf-a rf-a-hide" href="{{ route('customer.wishlist') }}">{{ __('  Wishlist') }}</a>
+            @foreach ($links as $link)
+        <!-- Check if link has children -->
+        @if (!array_key_exists('children', $link))
+            <!-- <li><a href="{{ get_href($link, $currentLanguageInfo->id) }}">{{ $link['text'] }}</a></li> -->
+        @else
+            <li class="">
+                <!-- <a href="{{ get_href($link, $currentLanguageInfo->id) }}">{{ $link['text'] }}</a> -->
+                <div class="">
+                    @foreach ($link['children'] as $level2)
+                    @if ($level2['text'] === 'Cart')
+                    <i class="fa fa-shopping-cart rf-a-hide" aria-hidden="true" style="color: white"></i>
+        <a class="rf-a rf-a-hide" href="{{ get_href($level2, $currentLanguageInfo->id) }}">{{ $level2['text'] }}</a>
+    @endif
                     @endforeach
-                  </select>
-                </form>
-              
-              </div>
+                </div>
+            </li>
+        @endif
+    @endforeach
               @if (!Auth::guard('customer')->check())
-            <div class="dropdown">
+              <i href="{{ route('customer.login') }}" class="fa fa-user rf-a-hide" style="color: white;"></i><a class="rf-a rf-a-hide" href="{{ route('customer.login') }}" style="color: white">{{ __('   Sign in') }}</a>
+            <!-- <div class="dropdown">
+            <i class="fa-light fa-user" style="color: #B197FC;"></i>
             <button type="button" class="btn rf-btn">Customer</button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
     <a class="rf-dropdown-item" href="{{ route('customer.login') }}">Login</a>
     <a class="rf-dropdown-item" href="{{ route('customer.signup') }}">Signup</a>
-  </div>
+  </div> -->
 </div>
 @else
+<style>
+  .header-right a.deals {
+    margin-right: 80px;
+}
+</style>
 <div class="dropdown">
-            <button type="button" class="btn rf-btn">{{ Auth::guard('customer')->user()->username }}</button>
+            <button type="button" class="btn rf-btn" style="padding-right: 20px">{{ Auth::guard('customer')->user()->username }}</button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
     <a class="rf-dropdown-item" href="{{ route('customer.dashboard') }}">Dashboard</a>
     <a class="rf-dropdown-item" href="{{ route('customer.logout') }}">Logout</a>
   </div>
 </div>
 @endif
-@if (!Auth::guard('organizer')->check())
+<!-- @if (!Auth::guard('organizer')->check())
 <div class="dropdown">
             <button type="button" class="btn rf-btn2">Organizer</button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
@@ -206,24 +302,68 @@ header {
     <a class="rf-dropdown-item" href="{{ route('organizer.logout') }}">Logout</a>
   </div>
 </div>
-@endif
+@endif -->
+<div class="menu-right lang-change">
+                <form action="{{ route('change_language') }}" method="get">
+                  <select name="lang_code" id="language" class="form-control" onchange="this.form.submit()">
+                    @foreach ($allLanguageInfos as $item)
+                      <option value="{{ $item->code }}"
+                        {{ $item->code == $currentLanguageInfo->code ? 'selected' : '' }}>{{ $item->name }}</option>
+                    @endforeach
+                  </select>
+                </form>
+              
+              </div>
         </div>
+        
     </div>
     <nav class="navbar rf-navigation clearfix">
     <!-- Loop through links -->
     @foreach ($links as $link)
         <!-- Check if link has children -->
         @if (!array_key_exists('children', $link))
+        @if (in_array($link['text'], ['Home', 'Events']))
             <li><a href="{{ get_href($link, $currentLanguageInfo->id) }}">{{ $link['text'] }}</a></li>
-        @else
-            <li class="dropdown">
+        @endif
+        
+        <!-- @if (in_array($link['text'], ['Blog', 'Contact']))
+            <li><a href="{{ get_href($link, $currentLanguageInfo->id) }}">{{ $link['text'] }}</a></li>
+        @endif -->
+            @else
+            <!-- <li class="dropdown">
                 <a href="{{ get_href($link, $currentLanguageInfo->id) }}">{{ $link['text'] }}</a>
                 <div class="dropdown-content">
                     @foreach ($link['children'] as $level2)
+             
                         <a href="{{ get_href($level2, $currentLanguageInfo->id) }}">{{ $level2['text'] }}</a>
-                    @endforeach
+                 
+                        @endforeach
                 </div>
-            </li>
+            </li> -->
+        @endif
+    @endforeach
+    <li><a href="{{ route('about') }}">{{ __('About Us') }}</a></li>
+    @foreach ($links as $link)
+        <!-- Check if link has children -->
+        @if (!array_key_exists('children', $link))
+        @if (in_array($link['text'], ['Blog', 'Contact']))
+            <li><a href="{{ get_href($link, $currentLanguageInfo->id) }}">{{ $link['text'] }}</a></li>
+        @endif
+        
+        <!-- @if (in_array($link['text'], ['Blog', 'Contact']))
+            <li><a href="{{ get_href($link, $currentLanguageInfo->id) }}">{{ $link['text'] }}</a></li>
+        @endif -->
+            @else
+            <!-- <li class="dropdown">
+                <a href="{{ get_href($link, $currentLanguageInfo->id) }}">{{ $link['text'] }}</a>
+                <div class="dropdown-content">
+                    @foreach ($link['children'] as $level2)
+             
+                        <a href="{{ get_href($level2, $currentLanguageInfo->id) }}">{{ $level2['text'] }}</a>
+                 
+                        @endforeach
+                </div>
+            </li> -->
         @endif
     @endforeach
 </nav>

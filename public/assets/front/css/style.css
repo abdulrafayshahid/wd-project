@@ -2454,9 +2454,9 @@ blockquote {
     position: relative;
     background: #f2f2f2;
     height: 50px;
-    border-radius: 20px;
+    border-radius: 23px;
     padding: 10px;
-    max-width: 500px;
+    max-width: 450px;
     
 }
 
@@ -4173,7 +4173,7 @@ html[dir*=rtl] .modal .close {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 5px 50px;
+    padding: 3px 50px;
 }
 
 .logo img {
@@ -4186,7 +4186,7 @@ html[dir*=rtl] .modal .close {
     justify-content: center;
     background-color: white; /* This color should match the second part of your gradient */
     padding: 10px 0;
-    gap: 60px
+    gap: 70px;
 
 }
 
@@ -4215,7 +4215,7 @@ html[dir*=rtl] .modal .close {
     padding: 5px 12px;
     border-radius: 5px;
     font-weight: bold;
-    margin-right: 120px;
+    margin-right: 100px;
 }
 
 .header-right .wishlist,
@@ -4260,11 +4260,11 @@ html[dir*=rtl] .modal .close {
 }
 
 .rf-btn {
-    padding: 10px 20px;
-    border: 2px solid white !important;
+    /* padding: 10px 20px;
+    border: 2px solid white !important; */
     background-color: transparent;
     color: white !important;
-    font-size: 16px;
+    font-size: 14px;
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
 }
@@ -4391,6 +4391,10 @@ html[dir*=rtl] .modal .close {
         display: none;
         
     }
+
+    .rf-a-hide{
+        display: none;
+    }
     
     .deals{
        display: none;
@@ -4405,9 +4409,15 @@ html[dir*=rtl] .modal .close {
     .rf-lower-footer{
         display: none;
     }
+    .top-header{
+        flex-direction: row;
+    }
+    .rf-theme-btn {
+        padding: 10px 120px !important;
+    }
 }
 
-@media screen and (max-width: 392px) {
+@media screen and (max-width: 540px) {
     h2{
         font-size: 20px;
     }
@@ -4417,11 +4427,14 @@ html[dir*=rtl] .modal .close {
     }
 
     .rf-hero-section{
-        height: 400px;
+        height: 300px;
     }
 
     .search-box {
-        max-width: 300px;
+        max-width: 190px;
+        height: 40px;
+        border-radius: 23px;
+        padding: 8px;
     }
 
     .res-bottom-nav{
@@ -4431,6 +4444,8 @@ html[dir*=rtl] .modal .close {
     width: 110%;
     padding-top: 10px;
     color: black;
+    gap: 10px 35px;
+    padding-left: 25px;
     }
 
     .res-bottom-nav .res-active{
@@ -4439,8 +4454,38 @@ html[dir*=rtl] .modal .close {
     }
 
     .res-bottom-nav div{
+        padding: 5px;
+    }
+
+    .btn:not(:disabled):not(.disabled){
+        float: right; 
+    }
+
+    .pt-100, .py-100{
         padding: 10px;
     }
+
+    .search-box .search-txt{
+        font-size: 10px;
+    }
+
+    .search-box .search-btn{
+        height: 35px;
+        height: 35px;
+        width: 70px;
+        font-size: 10px;
+    }
+
+    .rf-theme-btn{
+        padding: 10px 100px;
+    }
+
+    .rf-faq-container {
+        padding-left: 10px !important; 
+        padding-right: 10px !important;
+    }
+
+    
 
 }
 
@@ -4487,3 +4532,19 @@ html[dir*=rtl] .modal .close {
   .rf-review{
     padding-right: 260px;
   }
+  .product-title,.price-title, .total-title, .remove-title, .quantity-title, .avilable-title{
+    font-weight: bold;
+  }
+
+  .header-right .rf-a{
+    padding-right: 22px;
+  }
+
+  .responsive-header{
+    display: none;
+  }
+
+  .myTableStyle tr {
+    border-bottom: 1px solid #8b8b8b; 
+    
+}

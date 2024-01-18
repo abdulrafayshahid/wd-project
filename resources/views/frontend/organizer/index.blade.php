@@ -12,7 +12,11 @@
 @endphp
 @section('meta-keywords', "{{ $metaKeywords }}")
 @section('meta-description', "$metaDescription")
-
+<style>
+  .overlay{
+    z-index: 0 !important;
+  }
+</style>
 @section('hero-section')
   <!-- Page Banner Start -->
   <section class="page-banner overlay pt-120 pb-125 rpt-90 rpb-95 lazy"

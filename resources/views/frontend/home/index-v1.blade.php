@@ -39,7 +39,7 @@
       <form id="event-search" class="mt-35" name="event-search" action="{{ route('events') }}" method="get">
       <div class="search-box">
     <input type="search" id="search" class="search-txt search-input" placeholder=" Where Are You Going">
-    <button type="submit" class="search-btn">{{ $heroSection ? $heroSection->first_button : __('Search') }}</button>
+    <button type="submit" class="search-btn">{{ __('Search') }}</button>
     </div><br>
     </form>
     <div class="hero-content">
@@ -65,9 +65,9 @@
 
   <script>
 function updateLayout() {
-  var mediaQuery = window.matchMedia('(max-width: 392px)');
+  var mediaQuery = window.matchMedia('(max-width: 540px)');
   var bottomNav = document.querySelector('.bottom-nav');
-  var largemediaQuery = window.matchMedia('(min-width: 392px)');
+  var largemediaQuery = window.matchMedia('(min-width: 540px)');
 
   if (mediaQuery.matches) {
     // For smaller screens
@@ -76,7 +76,7 @@ function updateLayout() {
     bottomNav.classList.add('res-bottom-nav');
 
     bottomNav.querySelectorAll('div').forEach(function (div) {
-      div.classList.add('col-6');
+      div.classList.add('col-5');
       div.classList.remove('active');
       div.classList.add('res-active');
     });
@@ -88,7 +88,7 @@ function updateLayout() {
 
     var divElements = bottomNav.querySelectorAll('div');
     for (var i = 0; i < divElements.length; i++) {
-        divElements[i].classList.remove('col-6');
+        divElements[i].classList.remove('col-5');
         divElements[i].classList.add('active');
         divElements[i].classList.remove('res-active');
     break
