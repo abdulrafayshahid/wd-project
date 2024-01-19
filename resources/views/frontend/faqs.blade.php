@@ -15,8 +15,11 @@
 @endphp
 @section('meta-keywords', "{{ $metaKeywords }}")
 @section('meta-description', "$metaDescription")
-
-
+<style>
+  .rf-social-link{
+    padding-top: 12px;
+  }
+</style>
 @section('hero-section')
   <!-- Page Banner Start -->
   <section class="page-banner overlay pt-120 pb-125 rpt-90 rpb-95 lazy"
@@ -53,7 +56,7 @@
 
   <!--====== FAQ PART START ======-->
   <section class="faq-area pt-80 pb-80">
-    <div class="container faq-container">
+    <div class="container faq-container select-faq-container">
       <div class="row">
         <div class="col">
         
@@ -111,7 +114,7 @@
 <script>
 function updateLayout() {
   var mediaQuery = window.matchMedia('(max-width: 540px)');
-  var faqContainer = document.querySelector('.faq-container');
+  var faqContainer = document.querySelector('.select-faq-container');
  
 
   if (mediaQuery.matches) {
@@ -131,8 +134,5 @@ function updateLayout() {
 window.addEventListener('resize', updateLayout);
 
 // Call the function initially
-$( document ).ready(function() {
-  updateLayout();
-});
-
+updateLayout();
 </script>

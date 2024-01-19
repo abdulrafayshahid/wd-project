@@ -98,7 +98,7 @@
       
             @if (count($socialMediaInfos) > 0)
               @foreach ($socialMediaInfos as $socialMediaInfo)
-                <a href="{{ $socialMediaInfo->url }}"><i class="{{ $socialMediaInfo->icon }}"></i></a>
+                <a class="rf-social-link" href="{{ $socialMediaInfo->url }}"><i class="{{ $socialMediaInfo->icon }}"></i></a>
               @endforeach
             @endif
           </div>

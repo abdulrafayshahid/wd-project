@@ -4504,6 +4504,18 @@ html[dir*=rtl] .modal .close {
         margin-bottom: 30px;
     }
 
+    .user-dashbord .main-info{
+        font-size: 10px;
+    }
+
+    .wishlist-item {
+        display: flex;
+        align-items: center;
+    }
+    
+    .rf-title-margin{
+        margin-left: 10px;
+    }
 }
 
 .rf-copyright{

@@ -16,6 +16,9 @@
   .overlay{
     z-index: 0 !important;
   }
+  .rf-social-link{
+    padding-top: 12px;
+  }
 </style>
 @section('hero-section')
   <!-- Page Banner Start -->

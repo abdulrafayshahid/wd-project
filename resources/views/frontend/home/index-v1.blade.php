@@ -75,7 +75,7 @@
     </div>
   </div>
   </section>
-  <div class="bottom-nav">
+  <div class="rf-bottom-nav bottom-nav">
     <div class="active res-active">Wedding</div>
     <div>Business</div>
     <div>Career</div>
@@ -86,7 +86,7 @@
   <script>
 function updateLayout() {
   var mediaQuery = window.matchMedia('(max-width: 540px)');
-  var bottomNav = document.querySelector('.bottom-nav');
+  var bottomNav = document.querySelector('.rf-bottom-nav');
   var largemediaQuery = window.matchMedia('(min-width: 540px)');
 
   if (mediaQuery.matches) {
@@ -119,12 +119,15 @@ function updateLayout() {
 
 // Attach the function to the window resize event
 window.addEventListener('resize', updateLayout);
-
+window.addEventListener('DOMContentLoaded', updateLayout);
 // Call the function initially
 updateLayout();
 </script>
-
-  
+<style>
+  .rf-social-link{
+    padding-top: 12px;
+  }
+</style>
   <!-- Hero Section End -->
 @endsection
 @section('content')
@@ -618,7 +621,7 @@ updateLayout();
                   @else
                     <img class="lazy" data-src="{{ asset('assets/admin/img/testimonial/clients.png') }}" alt="Reviewer">
                   @endif
-                  <span class="pluse"><i class="fas fa-plus"></i></span>
+                  <span class="pluse"><i class="fas fa-plus rf-social-link"></i></span>
                 </div>
                 <h6>{{ $testimonialData ? $testimonialData->review_text : __('0 Clients Reviews') }}</h6>
               </div>

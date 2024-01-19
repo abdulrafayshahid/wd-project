@@ -82,11 +82,14 @@
                                 @if ($content)
                                   <tr>
                                     <td>
+                                    <div class="wishlist-item">
                                     <a href="{{ route('remove.wishlist', $item->event_id) }}" class="fa fa-trash mr-2" aria-hidden="true"></a>
                                     <img src="{{ asset('assets/admin/img/event/thumbnail/' . $content->thumbnail) }}" style="width: 60px; height: 60px;">
+                                    
                                     <a target="_blank"
-                                        href="{{ route('event.details', [$content->slug, $item->event_id]) }}">{{ $content->title }}</a>
-                                    </td>
+                                        href="{{ route('event.details', [$content->slug, $item->event_id]) }}" class="rf-title-margin">{{ $content->title }}</a>
+</div>
+                                      </td>
                                     
 
                                     <td>

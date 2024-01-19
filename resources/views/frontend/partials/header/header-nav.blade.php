@@ -1,27 +1,7 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 
 
-<script>
-  function updateLayout() {
-  var mediaQuery = window.matchMedia('(max-width: 540px)');
-  var header = document.querySelector('header');
-  var largemediaQuery = window.matchMedia('(min-width: 540px)');
 
-  if (mediaQuery.matches) {
-    // For smaller screens
-    header.classList.remove('responsive-header');
-    
-  } else if (largemediaQuery.matches) {
-    // For larger screens, revert to original classes if needed
-    header.classList.add('responsive-header');
-    
-  }
-}
-
-window.addEventListener('resize', updateLayout);
-window.addEventListener('DOMContentLoaded', updateLayout); // Ensures this runs after the DOM is fully loaded
-updateLayout();
-</script>
 <!-- <script>
 function change_lang() {
     // Select all elements with the class .header-right a.deals
@@ -33,6 +13,7 @@ function change_lang() {
     });
 }
 </script> -->
+
 <style>
 
   @media screen and (max-width: 540px) {
@@ -72,21 +53,52 @@ header {
     font-size: 24px; /* Adjust as needed */
 }
 
+
+
+/* The sidebar menu */
+.sidebar {
+  height: 100%;
+  width: 0px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: white;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
 }
+
+/* The close button */
+.closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar a {
+  padding: 8px 8px 8px 8px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #6b6b6b;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidebar a:hover {
+  color: #f1f1f1;
+}
+
+  }
+
 </style>
-
-<header class="responsive-header">
-        <!-- Upper Header -->
-        <div class="upper-header">
-            Deals Of The Week: BIG Island Hopping & Sailing Deals! <strong>Up To 25% Off</strong>
-        </div>
-
-        <!-- Lower Header -->
-        <div class="lower-header">
-        <img src="{{ asset('assets/admin/img/footer_logo/footer.png')}}" alt="Logo" class="logo">
-            <i class="fa-solid fa-bars menu-icon" style="color: #f36b21"></i>
-        </div>
-    </header>
 <!-- <header class="main-header">
 
  
@@ -378,3 +390,109 @@ header {
     @endforeach
 </nav>
 </header>
+
+<header class="responsive-header rf-header">
+        <!-- Upper Header -->
+        <div class="upper-header">
+            Deals Of The Week: BIG Island Hopping & Sailing Deals! <strong>Up To 25% Off</strong>
+        </div>
+
+        <!-- Lower Header -->
+        <div class="lower-header">
+        <img src="{{ asset('assets/admin/img/footer_logo/footer.png')}}" alt="Logo" class="logo">
+            <i class="fa-solid fa-bars menu-icon" style="color: #f36b21"></i>
+        </div>
+        <!-- Sidebar -->
+<div id="mySidebar" class="sidebar">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+    
+    @foreach ($links as $link)
+        <!-- Check if link has children -->
+        @if (!array_key_exists('children', $link))
+        @if (in_array($link['text'], ['Home','بيت','Events','الأحداث',]))
+            <li><a href="{{ get_href($link, $currentLanguageInfo->id) }}">{{ $link['text'] }}</a></li>
+        @endif
+        
+        <!-- @if (in_array($link['text'], ['Blog', 'Contact']))
+            <li><a href="{{ get_href($link, $currentLanguageInfo->id) }}">{{ $link['text'] }}</a></li>
+        @endif -->
+            @else
+            <!-- <li class="dropdown">
+                <a href="{{ get_href($link, $currentLanguageInfo->id) }}">{{ $link['text'] }}</a>
+                <div class="dropdown-content">
+                    @foreach ($link['children'] as $level2)
+             
+                        <a href="{{ get_href($level2, $currentLanguageInfo->id) }}">{{ $level2['text'] }}</a>
+                 
+                        @endforeach
+                </div>
+            </li> -->
+        @endif
+    @endforeach
+    <li><a href="{{ route('about') }}">{{ __('About Us') }}</a></li>
+    @foreach ($links as $link)
+        <!-- Check if link has children -->
+        @if (!array_key_exists('children', $link))
+        @if (in_array($link['text'], ['Blog','مدونة', 'Contact','اتصال']))
+            <li><a href="{{ get_href($link, $currentLanguageInfo->id) }}">{{ $link['text'] }}</a></li>
+        @endif
+        
+        <!-- @if (in_array($link['text'], ['Blog', 'Contact']))
+            <li><a href="{{ get_href($link, $currentLanguageInfo->id) }}">{{ $link['text'] }}</a></li>
+        @endif -->
+            @else
+            <!-- <li class="dropdown">
+                <a href="{{ get_href($link, $currentLanguageInfo->id) }}">{{ $link['text'] }}</a>
+                <div class="dropdown-content">
+                    @foreach ($link['children'] as $level2)
+             
+                        <a href="{{ get_href($level2, $currentLanguageInfo->id) }}">{{ $level2['text'] }}</a>
+                 
+                        @endforeach
+                </div>
+            </li> -->
+        @endif
+    @endforeach
+    
+</div>
+    </header>
+    <script>
+  function updateLayout() {
+  var mediaQuery = window.matchMedia('(max-width: 540px)');
+  var header = document.querySelector('.rf-header');
+  var largemediaQuery = window.matchMedia('(min-width: 540px)');
+
+  if (mediaQuery.matches) {
+    // For smaller screens
+    header.classList.remove('responsive-header');
+    
+  } else {
+    // For larger screens, revert to original classes if needed
+    header.classList.add('responsive-header');
+    
+  }
+}
+
+window.addEventListener('resize', updateLayout);
+window.addEventListener('DOMContentLoaded', updateLayout); // Ensures this runs after the DOM is fully loaded
+updateLayout();
+</script>
+    <script>
+  // Define openNav and closeNav in the global scope
+  function openNav() {
+    document.getElementById("mySidebar").style.width = "200px";
+  }
+
+  function closeNav() {
+    document.getElementById("mySidebar").style.width = "0";
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+  var menuIcon = document.querySelector('.menu-icon');
+  if (menuIcon) {
+    menuIcon.addEventListener('click', openNav);
+  }
+});
+</script>
+
+
