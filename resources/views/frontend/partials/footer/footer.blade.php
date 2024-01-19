@@ -1,4 +1,4 @@
-<footer class="footer-section bg-lighter pt-30"
+<footer class="footer-section bg-lighter pt-40"
   style="background-color: #2a2a2a">
   <div class="container">
     <div class="row justify-content-between">
