@@ -9,7 +9,27 @@
 @endphp
 @section('meta-keywords', "{{ $metaKeywords }}")
 @section('meta-description', "$metaDescription")
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    function updateActiveState(event) {
+        // Get all div elements in the bottom-nav
+        var divs = document.querySelectorAll('.bottom-nav div');
 
+        // Remove the active classes from all divs
+        divs.forEach(function(div) {
+            div.classList.remove('active', 'res-active');
+        });
+
+        // Add the active classes to the clicked div
+        event.currentTarget.classList.add('active', 'res-active');
+    }
+
+    // Add click event listener to each div in the bottom-nav
+    document.querySelectorAll('.bottom-nav div').forEach(function(div) {
+        div.addEventListener('click', updateActiveState);
+    });
+  });
+</script>
 @section('hero-section')
   <!-- Hero Section Start -->
   @if ($heroSection)
