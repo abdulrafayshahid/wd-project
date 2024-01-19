@@ -4441,7 +4441,7 @@ html[dir*=rtl] .modal .close {
         background-color: #fbb47f;
     text-align: center;
     float: left;
-    width: 110%;
+    width: 104%;
     padding-top: 10px;
     color: black;
     gap: 10px 35px;
@@ -4485,7 +4485,24 @@ html[dir*=rtl] .modal .close {
         padding-right: 10px !important;
     }
 
-    
+    .city {
+        margin-bottom: 10px;
+        width: 100%; 
+        margin: 20px;
+        
+      }
+
+    .footer-hide{
+        display: none;
+    }
+
+    .rf-center{
+        text-align: center;
+    } 
+
+    .footer-widget {
+        margin-bottom: 30px;
+    }
 
 }
 

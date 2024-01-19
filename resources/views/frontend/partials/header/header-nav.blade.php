@@ -11,7 +11,6 @@
     // For smaller screens
     header.classList.remove('responsive-header');
     
-
   } else if (largemediaQuery.matches) {
     // For larger screens, revert to original classes if needed
     header.classList.add('responsive-header');
@@ -23,6 +22,17 @@ window.addEventListener('resize', updateLayout);
 window.addEventListener('DOMContentLoaded', updateLayout); // Ensures this runs after the DOM is fully loaded
 updateLayout();
 </script>
+<!-- <script>
+function change_lang() {
+    // Select all elements with the class .header-right a.deals
+    var elements = document.querySelectorAll('.header-right a.deals');
+
+    // Iterate over each element and remove the margin-right property
+    elements.forEach(function(element) {
+      element.style.marginRight = '5px !important';
+    });
+}
+</script> -->
 <style>
 
   @media screen and (max-width: 540px) {
@@ -243,7 +253,7 @@ header {
             <a href="#" class="deals">Deals Of The Week: BIG Island Hopping & Sailing Deals! Up To 25% Off</a>
             <a class="rf-a rf-a-hide" href="{{ route('organizer.login') }}">{{ __('  Become a Supplier') }}</a>
             <i class="fa fa-heart rf-a-hide" aria-hidden="true" style="color: white"></i>
-            <a class="rf-a rf-a-hide" href="{{ route('customer.wishlist') }}">{{ __('  Wishlist') }}</a>
+            <a class="rf-a rf-a-hide" href="{{ route('customer.wishlist') }}">{{ __('Wishlist') }}</a>
             @foreach ($links as $link)
         <!-- Check if link has children -->
         @if (!array_key_exists('children', $link))
@@ -253,7 +263,7 @@ header {
                 <!-- <a href="{{ get_href($link, $currentLanguageInfo->id) }}">{{ $link['text'] }}</a> -->
                 <div class="">
                     @foreach ($link['children'] as $level2)
-                    @if ($level2['text'] === 'Cart')
+                    @if (in_array($level2['text'], ['Cart','عربة التسوق']))
                     <i class="fa fa-shopping-cart rf-a-hide" aria-hidden="true" style="color: white"></i>
         <a class="rf-a rf-a-hide" href="{{ get_href($level2, $currentLanguageInfo->id) }}">{{ $level2['text'] }}</a>
     @endif
@@ -263,7 +273,7 @@ header {
         @endif
     @endforeach
               @if (!Auth::guard('customer')->check())
-              <i href="{{ route('customer.login') }}" class="fa fa-user rf-a-hide" style="color: white;"></i><a class="rf-a rf-a-hide" href="{{ route('customer.login') }}" style="color: white">{{ __('   Sign in') }}</a>
+              <i href="{{ route('customer.login') }}" class="fa fa-user rf-a-hide" style="color: white;"></i><a class="rf-a rf-a-hide" href="{{ route('customer.login') }}" style="color: white">{{ __('Login') }}</a>
             <!-- <div class="dropdown">
             <i class="fa-light fa-user" style="color: #B197FC;"></i>
             <button type="button" class="btn rf-btn">Customer</button>
@@ -322,7 +332,7 @@ header {
     @foreach ($links as $link)
         <!-- Check if link has children -->
         @if (!array_key_exists('children', $link))
-        @if (in_array($link['text'], ['Home', 'Events']))
+        @if (in_array($link['text'], ['Home','بيت','Events','الأحداث',]))
             <li><a href="{{ get_href($link, $currentLanguageInfo->id) }}">{{ $link['text'] }}</a></li>
         @endif
         
@@ -346,7 +356,7 @@ header {
     @foreach ($links as $link)
         <!-- Check if link has children -->
         @if (!array_key_exists('children', $link))
-        @if (in_array($link['text'], ['Blog', 'Contact']))
+        @if (in_array($link['text'], ['Blog','مدونة', 'Contact','اتصال']))
             <li><a href="{{ get_href($link, $currentLanguageInfo->id) }}">{{ $link['text'] }}</a></li>
         @endif
         

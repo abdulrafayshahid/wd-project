@@ -2,7 +2,7 @@
   style="background-color: #2a2a2a">
   <div class="container">
     <div class="row justify-content-between">
-      <div class="col-lg-5 col-sm-6">
+      <div class="col-lg-5 rf-center col-sm-6">
         <div class="footer-widget about-widget">
           <div class="footer-logo mb-30">
             @if (!is_null($footerInfo))
@@ -10,11 +10,11 @@
                   src="{{ asset('assets/admin/img/footer_logo/footer.png') }}" alt="Logo"></a>
             @endif
           </div>
-          <p>{!! $footerInfo ? $footerInfo->about_company : '' !!}</p>
+          <p class="footer-hide">{!! $footerInfo ? $footerInfo->about_company : '' !!}</p>
          
         </div>
       </div>
-      <div class="col-lg-3 col-sm-6">
+      <div class="col-lg-3 footer-hide col-sm-6">
         <div class="footer-widget link-widget ml-sm-auto">
           <h5 class="footer-title">{{ __('Quick Links') }}</h5>
           <ul>

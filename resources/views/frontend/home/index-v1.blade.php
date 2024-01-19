@@ -644,7 +644,7 @@ updateLayout();
   <!-- Testimonial Section End -->
   <div class="container rf-container-cities">
   <section class="city-section">
-    <h2>Awe-inspiring spots around the world</h2>
+    <h2>Awe-inspiring sports around the world</h2>
     <div class="cities-grid">
     <article class="city">
   <img src="{{ asset('assets/admin/img/cities-section/Rectangle 18.png') }}" alt="Boston" />
