@@ -4,7 +4,16 @@
 @endsection
 @section('meta-keywords', "{{ $organizer->username }}")
 @section('meta-description', "$organizer->details")
-
+<style>
+    .overlay{
+        z-index: 0 !important;
+    }
+    
+    .social-style-one a{
+       padding-top: 12px; 
+    }
+    
+</style>
 @section('hero-section')
   <!-- Page Banner Start -->
   <section class="page-banner overlay pt-120 pb-125 rpt-90 rpb-95 lazy"

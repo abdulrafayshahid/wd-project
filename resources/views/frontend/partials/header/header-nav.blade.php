@@ -254,16 +254,47 @@ body {
 
 header {
     background: #f36b21;
+
+    
 }
+
 </style>
 <header>
     <div class="top-header">
         <div class="logo">
             <img src="{{ asset('assets/admin/img/header.png')}}" alt="Logo"> <!-- Replace # with your image path -->
+            <a href="#" class="deals">Deals Of The Week: BIG Island Hopping & Sailing Deals! Up To 25% Off</a>
         </div>
         <div class="header-right">
-            <a href="#" class="deals">Deals Of The Week: BIG Island Hopping & Sailing Deals! Up To 25% Off</a>
-            <a class="rf-a rf-a-hide" href="{{ route('organizer.login') }}">{{ __('  Become a Supplier') }}</a>
+            <!-- <div class="dropdown">
+            
+            <a class="rf-a rf-a-hide" href="{{ route('organizer.login') }}">{{ __('Become an Organizer') }}</a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+    <a class="rf-dropdown-item" href="{{ route('organizer.login') }}">Login</a>
+    <a class="rf-dropdown-item" href="{{ route('organizer.signup') }}">Signup</a>
+  </div>
+</div> -->
+
+@if (!Auth::guard('organizer')->check())
+<div class="dropdown" style="z-index: 999">
+<a class="rf-a rf-a-hide" href="{{ route('organizer.login') }}">{{ __('Become an Organizer') }}</a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+    <a class="rf-dropdown-item" href="{{ route('organizer.login') }}">{{ __('Login') }}</a>
+    <a class="rf-dropdown-item" href="{{ route('organizer.signup') }}">{{ __('Signup') }}</a>
+  </div>
+</div>
+@else
+                  <div class="dropdown">
+                    <button type="button" class="menu-btn dropdown-toggle mr-1"
+                      data-toggle="dropdown">{{ Auth::guard('organizer')->user()->username }}</button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      <a class="rf-dropdown-item" href="{{ route('organizer.dashboard') }}">{{ __('Dashboard') }}</a>
+                      <a class="rf-dropdown-item" href="{{ route('organizer.logout') }}">{{ __('Logout') }}</a>
+                    </div>
+                  </div>
+                @endif
+
+
             <i class="fa fa-heart rf-a-hide" aria-hidden="true" style="color: white"></i>
             <a class="rf-a rf-a-hide" href="{{ route('customer.wishlist') }}">{{ __('Wishlist') }}</a>
             @foreach ($links as $link)
@@ -288,12 +319,14 @@ header {
               <i href="{{ route('customer.login') }}" class="fa fa-user rf-a-hide" style="color: white;"></i><a class="rf-a rf-a-hide" href="{{ route('customer.login') }}" style="color: white">{{ __('Login') }}</a>
             <!-- <div class="dropdown">
             <i class="fa-light fa-user" style="color: #B197FC;"></i>
-            <button type="button" class="btn rf-btn">Customer</button>
+            <a class="rf-a rf-a-hide" href="{{ route('organizer.login') }}">{{ __('Become an Organizer') }}</a>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
     <a class="rf-dropdown-item" href="{{ route('customer.login') }}">Login</a>
     <a class="rf-dropdown-item" href="{{ route('customer.signup') }}">Signup</a>
   </div> -->
-</div>
+
+
+
 @else
 <style>
   .header-right a.deals {
